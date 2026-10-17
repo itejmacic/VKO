@@ -1,0 +1,550 @@
+/* Varaždinski komorni orkestar — 8px spacing scale */
+:root{
+  --navy:#14213d; --navy-2:#1f2f54; --ivory:#faf7f1; --ivory-2:#f2ece1; --gold:#b08d4a;
+  --ink:#1b2236; --muted:#5d6475; --line:#e3dccf;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s8:64px; --s12:96px; --s16:128px;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:Inter,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);font-size:17px;line-height:1.7;color:var(--ink);background:var(--ivory);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:var(--navy);text-decoration-color:var(--gold);text-underline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;color:var(--navy);letter-spacing:-.005em}
+h1{font-size:clamp(2.75rem,6vw,4.5rem)}
+h2{font-size:clamp(2rem,3.6vw,2.75rem);margin-bottom:var(--s3)}
+h3{font-size:1.5rem;margin-bottom:var(--s1)}
+p+p{margin-top:var(--s2)}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--s3)}
+.section{padding:var(--s12) 0}
+.alt{background:var(--ivory-2)}
+.kicker{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s2)}
+.section-head{max-width:65ch;margin-bottom:var(--s6)}
+.section-head h2{margin-bottom:var(--s1)}
+.meta{color:var(--muted);font-size:.95rem}
+.note{color:var(--muted);font-size:.875rem;margin-top:var(--s3)}
+.prose{max-width:65ch}.prose p{color:#3a4152}
+.split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s8);align-items:start}
+.photo{margin:0;overflow:hidden;border-radius:4px;background:var(--line)}
+.photo img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.photo.tall img{aspect-ratio:4/5}
+.btn{display:inline-block;font:500 .95rem var(--sans);letter-spacing:.02em;padding:14px 28px;border-radius:2px;background:var(--gold);color:#fff;text-decoration:none;border:1px solid var(--gold);cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:#9a7a3d}
+.btn-ghost{background:transparent;border-color:#ffffffb3}.btn-ghost:hover{background:#ffffff1a}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:var(--s3);padding:var(--s2) var(--s4);background:var(--navy);color:#fff}
+.logo{display:flex;align-items:center;gap:var(--s2);color:#fff;text-decoration:none;font-family:var(--serif);font-size:1.25rem}
+.logo-img{height:32px;border-radius:2px;background:#fff}
+.nav-links{display:flex;gap:var(--s3)}
+.nav-links a{color:#ffffffd9;text-decoration:none;font-size:.875rem;font-weight:500;letter-spacing:.02em;padding:var(--s1) 0;border-bottom:1px solid transparent}
+.nav-links a:hover{color:#fff;border-color:var(--gold)}
+.nav-toggle{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;display:block;color:#fff;background:#14213d;padding-top:clamp(240px,26vw,440px)}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:clamp(240px,26vw,440px);background:linear-gradient(180deg,#14213d22 0%,#14213d22 60%,#14213d99 93%,#14213d 100%),url(img/hero-orkestar.jpg) center 38%/cover no-repeat}
+.hero-inner{max-width:1160px;width:100%;margin:0 auto;padding:var(--s16) var(--s3) var(--s12)}
+.hero .eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s2)}
+.hero h1{color:#fff;max-width:14ch}
+.lead{max-width:56ch;font-size:1.125rem;color:#ffffffe0;margin:var(--s3) 0 var(--s5)}
+.hero-cta{display:flex;gap:var(--s2);flex-wrap:wrap}
+
+/* next concert */
+.soloist{margin-bottom:var(--s3)}
+.program{list-style:none;border-top:1px solid var(--line)}
+.program li{padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.program li span{display:block;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.program li em{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--navy);margin-right:6px}
+.program .pause{text-align:center;color:var(--muted);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+.aside-col{display:grid;gap:var(--s4)}
+.quote{font-family:var(--serif);font-size:1.3rem;line-height:1.5;color:var(--navy);padding-left:var(--s3);border-left:2px solid var(--gold)}
+.quote cite{display:block;margin-top:var(--s2);font:500 .85rem var(--sans);font-style:normal;color:var(--muted)}
+
+/* season */
+.season-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:var(--s8);align-items:start}
+.show{display:grid;grid-template-columns:96px minmax(0,1fr);gap:var(--s3);padding:var(--s4) 0;border-top:1px solid var(--line);align-items:start}
+.show:has(>.artists-row),.show:has(>.show-thumb){grid-template-columns:112px 96px minmax(0,1fr)}
+.show.multi-guest:has(>.show-thumb){grid-template-columns:112px 96px minmax(0,1fr)}
+.show:last-of-type{border-bottom:1px solid var(--line)}
+.date{text-align:left}
+.date b{display:block;font-family:var(--serif);font-weight:500;font-size:3rem;line-height:1;color:var(--navy)}
+.date span{font-size:.8rem;color:var(--muted)}
+.ord{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s1)}
+.info h3{margin-bottom:var(--s1)}
+.info p{color:#3a4152;font-size:.95rem;max-width:65ch}.info p+p{margin-top:4px}
+.info .prog{color:var(--muted)}
+.season-pics{display:grid;gap:var(--s3);position:sticky;top:96px}
+
+/* subscription */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-bottom:var(--s5)}
+.prices>div{padding-top:var(--s2);border-top:2px solid var(--gold)}
+.prices dt{font-size:.85rem;font-weight:600;color:var(--navy)}
+.prices dd{font-family:var(--serif);font-size:2.75rem;line-height:1.1;color:var(--navy);margin:var(--s1) 0}
+.prices p{font-size:.85rem;color:var(--muted)}
+.sales{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);font-size:.95rem}
+.sales p+p{margin-top:0}
+
+/* roster */
+.roster-inactive{margin-top:var(--s5);padding:var(--s3) var(--s4);border:1px solid var(--line);border-radius:6px;background:rgba(0,0,0,.025)}
+.roster-inactive h3{font-size:1.05rem;color:var(--muted);margin-bottom:var(--s2)}
+.roster-muted{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--s5)}
+.roster-muted .name{color:var(--muted);font-weight:400}
+.roster-muted .inst{font-size:.75rem;opacity:.8}
+@media (max-width:900px){.roster-muted{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.roster-muted{grid-template-columns:1fr}}
+.roster-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s5)}
+.roster-group h3{padding-bottom:var(--s1);border-bottom:2px solid var(--gold);margin-bottom:var(--s2)}
+.roster{list-style:none}
+.roster li{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:var(--s1);padding:12px 0;border-bottom:1px solid var(--line)}
+.roster .name{font-weight:500;color:var(--ink);flex:1 1 100%}
+.roster .inst{font-size:.8rem;color:var(--muted)}
+.roster .role{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.roster .role::before{content:"· ";color:var(--muted)}
+.board{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);margin-top:var(--s8);padding-top:var(--s6);border-top:1px solid var(--line)}
+.board h3{margin-bottom:var(--s2)}.board p{color:#3a4152;max-width:65ch}.board p+h3{margin-top:var(--s4)}
+.roles{display:grid;grid-template-columns:auto 1fr;gap:var(--s1) var(--s3)}
+.roles dt{font-size:.85rem;font-weight:600;color:var(--muted)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:240px;grid-auto-flow:dense;gap:var(--s2)}
+.tile{padding:0;border:0;overflow:hidden;cursor:zoom-in;background:var(--line);border-radius:4px}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.tile:hover img{transform:scale(1.03)}
+.tile.big{grid-column:span 2;grid-row:span 2}.tile.wide{grid-column:span 2}
+.disco-head{margin:var(--s12) 0 var(--s4)}
+.disco{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4)}
+.disco figure{display:grid;grid-template-columns:96px 1fr;gap:var(--s2);align-items:center}
+.disco img{width:96px;height:96px;object-fit:cover;border-radius:2px}
+.disco figcaption{font-size:.875rem;color:var(--muted);line-height:1.5}.disco strong{color:var(--navy)}
+
+/* awards */
+.awards{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0 var(--s5)}
+.awards li{padding:var(--s3) 0;border-top:1px solid var(--line)}
+.awards strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.4rem;color:var(--navy)}
+.awards span{font-size:.9rem;color:var(--muted)}
+
+/* contact */
+address{font-style:normal;line-height:1.9}
+form{display:grid;gap:var(--s3)}
+label{display:grid;gap:var(--s1);font-size:.85rem;font-weight:600;color:var(--navy)}
+input,textarea{font:inherit;font-weight:400;padding:12px var(--s2);border:1px solid #cfc6b5;border-radius:2px;background:#fff}
+input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.invalid{border-color:#a33}.err{color:#a33;font-weight:400;min-height:1em}
+.form-status{color:var(--navy);font-weight:500}
+form .btn{justify-self:start}
+
+.footer{background:var(--navy);color:#ffffffcc;padding:var(--s6) 0;font-size:.875rem}
+.footer .small{color:#ffffff8c;margin-top:var(--s1)}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:100;background:#0d1528f2;display:grid;place-items:center;padding:var(--s4)}
+.lightbox[hidden]{display:none}
+.lb-img{max-width:min(92vw,1600px);max-height:86vh;border-radius:2px}
+.lb-caption:empty{display:none}.lb-caption{color:#fff}
+.lb-close{position:absolute;top:var(--s2);right:var(--s3);background:none;border:0;color:#fff;font-size:2.5rem;cursor:pointer}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1024px){
+  .roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .season-grid{grid-template-columns:1fr}.season-pics{position:static;grid-template-columns:repeat(3,1fr)}
+  .nav-links{gap:var(--s2)}
+}
+@media(max-width:860px){
+  body{font-size:16px}
+  .section{padding:var(--s8) 0}
+  .nav{padding:12px var(--s3)}
+  .logo span{font-size:1.05rem}
+  .nav-toggle{display:block}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--navy);padding:var(--s1) var(--s3) var(--s3);display:none}
+  .nav-links.open{display:flex}.nav-links a{padding:12px 0;border-bottom:1px solid #ffffff1a}
+  .split,.board{grid-template-columns:1fr;gap:var(--s5)}
+  .photo.tall img{aspect-ratio:3/2}
+  .prices,.awards,.disco{grid-template-columns:1fr}
+  .sales{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.tile.wide{grid-column:span 2}
+  .season-pics{grid-template-columns:1fr}
+  .show:not(:has(>.artists-row)):not(:has(>.show-thumb)){grid-template-columns:72px minmax(0,1fr);gap:var(--s2)}
+  .date b{font-size:2.25rem}
+  .hero-inner{padding:var(--s12) var(--s3) var(--s8)}
+}
+@media(max-width:480px){
+  .roster-grid{grid-template-columns:1fr}
+  .roles{grid-template-columns:1fr;gap:4px}.roles dd{margin-bottom:var(--s1)}
+  .logo span{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* suradnje */
+.walls{display:grid;gap:var(--s8)}
+.wall-group h3{display:flex;align-items:baseline;gap:var(--s2);padding-bottom:var(--s2);margin-bottom:var(--s3);border-bottom:2px solid var(--gold)}
+.wall-group .count{font:600 .75rem var(--sans);letter-spacing:.14em;color:var(--gold)}
+.namewall{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0 var(--s4)}
+.namewall li{padding:12px 0;border-bottom:1px solid var(--line)}
+.namewall .n{display:block;font-family:var(--serif);font-size:1.3rem;line-height:1.3;color:var(--navy)}
+.namewall .i{display:block;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.archive-head{margin-top:var(--s12)}
+.archive{border-top:1px solid var(--line)}
+.season{border-bottom:1px solid var(--line)}
+.season summary{display:grid;grid-template-columns:160px 1fr auto;align-items:baseline;gap:var(--s3);padding:var(--s3) 0;cursor:pointer;list-style:none}
+.season summary::-webkit-details-marker{display:none}
+.season summary::after{content:"+";grid-column:4;color:var(--gold);font-size:1.25rem;line-height:1}
+.season[open] summary::after{content:"–"}
+.season .yr{font-family:var(--serif);font-size:1.6rem;color:var(--navy)}
+.season .rn{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.season .nc{font-size:.85rem;color:var(--muted)}
+.gigs{list-style:none;padding:0 0 var(--s3) 0}
+.gig{display:grid;grid-template-columns:160px minmax(0,1fr);gap:var(--s3);padding:var(--s2) 0;border-top:1px solid var(--line)}
+.gig time{font-size:.85rem;color:var(--muted);padding-top:2px}
+.gig-title{font-family:var(--serif);font-size:1.2rem;color:var(--navy);line-height:1.35}
+.gig-perf{font-size:.95rem;color:#3a4152;max-width:65ch}
+.gig-title+.gig-perf{margin-top:4px}
+@media(max-width:860px){
+  .season summary{grid-template-columns:1fr auto;gap:4px var(--s2)}
+  .season .yr{grid-column:1}.season .rn{grid-column:1}.season .nc{grid-column:1}
+  .season summary::after{grid-column:2;grid-row:1}
+  .gig{grid-template-columns:1fr;gap:4px}
+  .namewall{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.namewall{grid-template-columns:1fr}}
+
+/* recent collaborators */
+.sub-h{font-size:1.75rem;margin-bottom:var(--s1)}
+.recent .meta{margin-bottom:var(--s4)}
+.season-label{font:600 .75rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:var(--s4) 0 var(--s2)}
+.rcards{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--s2)}
+.rc{background:var(--ivory);border-top:2px solid var(--gold);padding:var(--s3);display:flex;flex-direction:column;gap:4px}
+.rc.wide{grid-column:1/-1;order:1}
+.rc-label{font:600 .7rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rc-name{font-family:var(--serif);font-size:1.6rem;line-height:1.2;color:var(--navy)}
+.rc.wide .rc-name{font-size:1.3rem}
+.rc-role{font-size:.85rem;color:#3a4152}
+.rc-gig{margin-top:auto;padding-top:var(--s1);font-size:.8rem;color:var(--muted)}
+.rc-gig time{color:var(--navy);font-weight:500}
+
+/* toggles */
+.toggle-block{margin-top:var(--s5)}
+.toggle-btn{display:inline-flex;align-items:center;gap:var(--s2);font:500 .9rem var(--sans);letter-spacing:.02em;color:var(--navy);background:transparent;border:1px solid var(--gold);border-radius:2px;padding:12px 20px;cursor:pointer;transition:background .2s}
+.toggle-btn:hover{background:#b08d4a14}
+.toggle-btn:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.tb-icon{width:10px;height:10px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg) translate(-2px,-2px);transition:transform .3s}
+.toggle-btn[aria-expanded="true"] .tb-icon{transform:rotate(-135deg) translate(-2px,-2px)}
+.collapse{display:grid;grid-template-rows:1fr;transition:grid-template-rows .45s ease,opacity .45s ease}
+.js .collapse{grid-template-rows:0fr;opacity:0}
+.js .collapse.open{grid-template-rows:1fr;opacity:1}
+.collapse-inner{overflow:hidden;min-height:0}
+.collapse .walls{padding-top:var(--s5)}
+#ranije-sezone .collapse-inner>details:first-child{margin-top:var(--s3);border-top:1px solid var(--line)}
+.archive>.toggle-block{margin-top:var(--s4)}
+@media(prefers-reduced-motion:reduce){.collapse{transition:none}}
+@media(max-width:480px){.rcards{grid-template-columns:1fr}.toggle-btn{width:100%;justify-content:space-between}}
+
+/* CV / biografija cards */
+.rc.has-cv{gap:6px}
+.rc-blurb{font-size:.9rem;line-height:1.45;color:#3a4152;max-width:48ch}
+.cv-btn{display:inline-flex;align-items:center;gap:8px;margin-top:var(--s2);align-self:flex-start;font:600 .8rem var(--sans);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--navy);background:transparent;border:1px solid var(--gold);border-radius:2px;padding:10px 16px;transition:background .2s,color .2s}
+.cv-btn:hover{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
+.cv-btn:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.cv-btn::after{content:"";width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
+.note-opera{margin:var(--s3) 0 var(--s2);font-size:.85rem;max-width:70ch}
+.season-more{padding-top:var(--s5);margin-bottom:var(--s6);border-bottom:1px solid var(--line);padding-bottom:var(--s6)}
+.season-more .meta{margin-bottom:var(--s3)}
+
+/* past concert cards in Nedavne */
+.past-gigs{grid-template-columns:1fr}
+.past-gig .rc-name{font-size:1.35rem}
+.rc-artists{list-style:none;margin-top:var(--s1);display:flex;flex-wrap:wrap;gap:6px 14px}
+.rc-artists li{font-size:.9rem;color:#3a4152}
+
+/* clickable season concerts */
+.show-toggle{display:block;width:100%;text-align:left;background:transparent;border:0;padding:0;cursor:pointer;color:inherit;font:inherit}
+.show-toggle:focus-visible{outline:2px solid var(--navy);outline-offset:4px}
+.show-toggle .show-lead{margin:4px 0 0;color:#3a4152}
+.show-hint{display:inline-block;margin-top:8px;font:600 .75rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.show-toggle[aria-expanded="true"] .show-hint{color:var(--navy)}
+.show-toggle[aria-expanded="true"] .show-hint::after{content:" · sakrij"}
+.show-panel{margin-top:var(--s3);padding:var(--s3);background:var(--ivory);border-left:2px solid var(--gold)}
+.show-panel[hidden]{display:none}
+.panel-kicker{font:600 .75rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s2)}
+.works{list-style:none;margin:0 0 var(--s3)}
+.works li{padding:6px 0;border-bottom:1px solid var(--line);font-size:.95rem;line-height:1.45}
+.works em{font-family:var(--serif);font-style:italic;color:var(--navy)}
+.works .pause{text-align:center;letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;color:var(--muted);border:0;padding:10px 0}
+.cv-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--s3)}
+.cv-row .cv-btn{margin-top:0}
+.ext-link{margin-top:var(--s3)}
+.ext-link a{font:600 .85rem var(--sans);color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+
+
+/* artist portraits on season concerts — image | date | text side-by-side */
+.show-thumb,.show-thumb.round{margin:0;width:76px;height:76px;border-radius:50%;overflow:hidden;background:var(--line);box-shadow:0 0 0 1px var(--line),0 0 0 3px #fff,0 0 0 4px var(--gold)}
+.show-thumb img,.show-thumb.round img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;display:block}
+@media(max-width:860px){.show-thumb,.show-thumb.round{width:64px;height:64px}}
+@media(max-width:560px){.show-thumb,.show-thumb.round{width:56px;height:56px;max-width:none}}
+
+.artists-row{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+.show>.artists-row,.show>.show-thumb{grid-column:1;grid-row:1}
+.show:has(>.artists-row)>.date,.show:has(>.show-thumb)>.date{grid-column:2;grid-row:1}
+.show:has(>.artists-row)>.info,.show:has(>.show-thumb)>.info{grid-column:3;grid-row:1;min-width:0}
+.artist-pic{display:block;width:76px;height:76px;border-radius:50%;overflow:hidden;background:var(--ivory);flex:0 0 auto;transition:transform .2s;text-decoration:none;color:inherit}
+.artist-pic:hover,.artist-pic:focus-visible{transform:translateY(-2px)}
+.artist-pic img{width:100%;height:100%;object-fit:cover;display:block}
+.artist-pic.ring-gold{box-shadow:0 0 0 2px var(--gold)}
+.artist-pic.ring-thin{box-shadow:0 0 0 1px var(--line),0 0 0 3px #fff,0 0 0 4px var(--gold)}
+.artist-pic.ring-none{box-shadow:0 1px 4px rgba(20,30,50,.18)}
+.artist-pic.sm{width:40px;height:40px}
+.pic-init{display:flex;width:100%;height:100%;align-items:center;justify-content:center;font:500 1.2rem var(--serif);color:var(--navy);background:linear-gradient(135deg,#f3efe6,#e6e0d2);letter-spacing:.04em}
+.artist-pic.sm .pic-init{font-size:.75rem}
+.guests-list{display:flex;flex-direction:column;gap:10px;margin:var(--s3) 0}
+.guest-line{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;padding:4px 0}
+.guest-line:hover strong{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.guest-line.guest-static{cursor:default}
+.guest-line.guest-static:hover strong{color:inherit;text-decoration:none}
+.guest-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.guest-txt strong{font-weight:600;color:var(--ink)}
+.guest-txt em{font-style:normal;font-size:.85rem;color:var(--muted)}
+@media(max-width:860px){
+  .show:has(>.artists-row),.show:has(>.show-thumb){grid-template-columns:84px 72px minmax(0,1fr)}
+  .show.multi-guest:has(>.show-thumb){grid-template-columns:84px 72px minmax(0,1fr)}
+  .artist-pic{width:64px;height:64px}
+  .date b{font-size:2.4rem}
+}
+@media(max-width:560px){
+  /* keep image beside text: image | (date+info stacked) */
+  .show:has(>.artists-row),.show:has(>.show-thumb),.show.multi-guest:has(>.show-thumb){
+    grid-template-columns:84px minmax(0,1fr);gap:var(--s2)
+  }
+  .show:has(>.artists-row)>.date,.show:has(>.show-thumb)>.date{grid-column:2;grid-row:1}
+  .show:has(>.artists-row)>.info,.show:has(>.show-thumb)>.info{grid-column:2;grid-row:2}
+  .show>.artists-row,.show>.show-thumb{grid-column:1;grid-row:1 / span 2;align-self:start}
+  .show-thumb{max-width:100px}
+  .artist-pic{width:56px;height:56px}
+  .date b{font-size:2.1rem}
+}
+/* soloist pages */
+.solo{max-width:760px;margin:0 auto;padding:120px var(--s3) var(--s8)}
+.solo-head{display:flex;gap:var(--s4);align-items:center;margin-bottom:var(--s5)}
+.solo-head .artist-pic{width:150px;height:150px;pointer-events:none}
+.solo-head .pic-init{font-size:2.6rem}
+.solo h1{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:2.4rem;line-height:1.1;margin:0}
+.solo .role{color:var(--gold);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;margin-top:6px}
+.solo .bio p{color:#3a4152;line-height:1.65;margin-bottom:var(--s2)}
+.solo h2{font-family:var(--serif);font-weight:500;color:var(--navy);margin:var(--s5) 0 var(--s2);font-size:1.5rem}
+.solo .meta-small{font-size:.85rem;color:var(--muted);margin-top:var(--s4)}
+.solo a.back{font:600 .85rem var(--sans);color:var(--navy)}
+@media(max-width:560px){.solo-head{flex-direction:column;align-items:flex-start}}
+/* soloist drawer */
+.drawer-backdrop{position:fixed;inset:0;background:rgba(20,28,45,.28);opacity:0;transition:opacity .28s;z-index:90}
+.drawer-backdrop.open{opacity:1}
+.drawer{position:fixed;inset:0;margin:auto;height:min(820px,86vh);width:min(680px,92vw);border-radius:8px;background:var(--ivory,#faf7f0);border-left:3px solid var(--gold);box-shadow:-12px 0 40px rgba(20,30,50,.18);overflow-y:auto;transform-origin:0 0;z-index:100}
+.drawer.open{transform:none}.drawer[hidden]{display:none}
+.drawer .drawer-body.solo{max-width:none;margin:0;padding:56px var(--s4) var(--s6)}
+.drawer .solo-head .artist-pic{width:120px;height:120px}
+.drawer h1{font-size:2rem}
+.drawer-close{position:sticky;top:0;float:right;margin:10px 10px 0 0;width:40px;height:40px;border:0;border-radius:50%;background:transparent;color:var(--navy);font-size:1.8rem;line-height:1;cursor:pointer;z-index:2}
+.drawer-close:hover,.drawer-close:focus-visible{background:rgba(0,0,0,.06);color:var(--gold);outline:none}
+body.drawer-lock{overflow:hidden}
+@media(max-width:560px){.drawer{width:96vw;height:92vh}.drawer .drawer-body.solo{padding:56px var(--s3) var(--s5)}}
+
+/* empty right column beside concerts */
+.season-empty{visibility:hidden}
+
+/* centred title in navy band */
+.hero .hero-inner{position:relative;text-align:center;padding:var(--s6) var(--s3) var(--s8);margin-top:0}
+.hero h1{font-size:clamp(3rem,7.5vw,6.25rem);max-width:none;line-height:1.05;letter-spacing:.01em;margin:0 auto var(--s3)}
+.hero h1::after{content:"";display:block;width:72px;height:1px;background:var(--gold);margin:var(--s3) auto 0}
+.hero .lead{max-width:60ch;margin-left:auto;margin-right:auto}
+.hero .hero-cta{justify-content:center}
+/* tighter navy band */
+.hero .hero-inner{padding:var(--s3) var(--s3) var(--s5)}
+.hero .eyebrow{margin-bottom:6px}
+.hero h1{margin-bottom:var(--s2)}
+.hero h1::after{margin-top:var(--s2)}
+.hero .lead{margin-top:0;margin-bottom:var(--s3)}
+/* compact O nama */
+#onama.section{padding:var(--s6) 0}
+#onama .split{gap:var(--s6);grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+#onama .prose{max-width:none}
+#onama .prose h2{margin:4px 0 var(--s2)}
+#onama .prose p{font-size:.95rem;line-height:1.55;margin:0 0 var(--s2)}
+#onama .kicker{margin-bottom:0}
+.next-soloist img{aspect-ratio:4/5;object-fit:cover;object-position:center 25%}
+.next-soloist{border-radius:50%;aspect-ratio:1;max-width:420px;margin:0 auto;box-shadow:0 0 0 6px #faf8f3,0 0 0 7px var(--gold)}
+.next-soloist img{aspect-ratio:1;object-position:center;border-radius:50%}
+
+.next-arch{border-radius:14px;aspect-ratio:1;max-width:460px;margin:0 auto;box-shadow:0 0 0 6px #faf8f3,0 0 0 7px var(--gold)}
+.next-arch img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center}
+
+.lead-pic{display:inline-block;vertical-align:middle;width:30px;height:30px;margin-right:10px;border-radius:50%;box-shadow:0 0 0 3px #faf8f3,0 0 0 4px var(--gold);overflow:hidden;transition:transform .2s}
+.lead-pic img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.lead-pic:hover{transform:scale(1.12)}
+
+.cv-name{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.artists-row span.artist-pic{cursor:default}
+
+.cv-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:var(--s3,1.25rem) 0;padding:6px;background:#faf8f3;border-radius:12px;box-shadow:0 0 0 1px var(--gold)}
+.cv-pair img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;display:block}
+.cv-pair img:first-child{object-position:center 30%}
+.cv-pair img:last-child{object-position:58% 45%}
+
+.cv-pair a{display:block;border-radius:8px;overflow:hidden}.cv-pair a img{transition:opacity .2s}.cv-pair a:hover img{opacity:.88}
+
+.cv-pair.cv-single{grid-template-columns:1fr;max-width:320px;margin-left:auto;margin-right:auto}
+
+.soloist-pic{display:inline-block;vertical-align:middle;margin-right:10px}
+.soloist-pic img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:center 30%;box-shadow:0 0 0 1px var(--gold);display:block}
+
+.cv-link{margin-top:var(--s2,1rem);font-size:.95rem}
+.cv-link a{color:var(--navy);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.cv-link a:hover{color:var(--gold)}
+
+.cv-link{margin-top:var(--s3,1.5rem)}
+.cv-link a{display:inline-block;font-family:var(--serif,Georgia,serif);font-size:1.2rem;font-weight:600;letter-spacing:.01em;color:var(--navy);padding:10px 22px;border:1px solid var(--gold);border-radius:999px;border-bottom-width:1px;transition:background .2s,color .2s}
+.cv-link a:hover,.cv-link a:focus-visible{background:var(--navy);color:#faf8f3;outline:none}
+
+
+/* past-gig cards: whole card is a link */
+.past-gig{position:relative;transition:border-color .2s,box-shadow .2s,transform .2s;border:1px solid transparent;border-top:2px solid var(--gold)}
+.past-gig:hover,.past-gig:focus-within{border-color:var(--gold);box-shadow:0 8px 22px rgba(20,33,61,.1);transform:translateY(-2px)}
+.past-gig .rc-name a{color:inherit;text-decoration:none}
+.past-gig .rc-name a::after{content:"";position:absolute;inset:0;z-index:1}
+
+/* concert detail pages */
+.concert-page{max-width:760px;margin:0 auto;padding:100px var(--s3) var(--s8)}
+.concert-page h1{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:2.4rem;line-height:1.15;margin:0 0 var(--s2)}
+.concert-page .meta{color:var(--muted);margin-bottom:var(--s4)}
+.concert-page h2{font-family:var(--serif);font-weight:500;color:var(--navy);margin:var(--s5) 0 var(--s2);font-size:1.5rem}
+.concert-page .performers,.concert-page .program-list,.concert-page .sources{list-style:none;padding:0;margin:0 0 var(--s3)}
+.concert-page .performers li,.concert-page .program-list li,.concert-page .sources li{padding:8px 0;border-bottom:1px solid rgba(20,33,61,.08);color:#3a4152;line-height:1.5}
+.concert-page .program-list li em{font-family:var(--serif);font-style:italic;color:var(--navy)}
+.concert-page .about{color:#3a4152;line-height:1.65;margin-bottom:var(--s3)}
+.concert-page .sources a{word-break:break-word}
+.concert-page a.back{font:600 .85rem var(--sans);color:var(--navy)}
+
+.season-pics .photo{margin:0;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--gold)}
+.season-pics .photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+
+@media (min-width:1025px){
+.season-grid{align-items:stretch}
+.season-pics{position:relative;top:auto;align-self:stretch;display:flex;flex-direction:column;gap:var(--s3)}
+.season-pics .photo{flex:1 1 0;min-height:0}
+.season-pics .photo img{height:100%;aspect-ratio:auto}
+}
+
+.prog-card{margin:0;background:#fbf8f1;border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:-9px;border-radius:4px;padding:34px 30px 26px;text-align:center;box-shadow:0 14px 30px rgba(20,33,61,.14),0 2px 6px rgba(20,33,61,.08);font-family:var(--serif,Georgia,serif);color:var(--navy)}
+.prog-card .pc-org{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#7a6a45;margin:0}
+.prog-card .pc-season{font-size:1.45rem;margin:10px 0 0;line-height:1.2}
+.prog-card .pc-yr{font-size:.95rem;font-style:italic;margin:4px 0 0;color:#5a6275}
+.prog-card .pc-rule{display:block;width:60px;height:1px;background:var(--gold);margin:16px auto 14px}
+.prog-card .pc-list{list-style:none;margin:0;padding:0}
+.prog-card .pc-list li{padding:9px 0;border-bottom:1px dotted #cdbb8f;display:flex;flex-direction:column;gap:2px}
+.prog-card .pc-list li:last-child{border-bottom:0}
+.prog-card time{font-size:.7rem;letter-spacing:.14em;color:#8a7440}
+.prog-card .pc-list span{font-size:1rem;line-height:1.25}
+.prog-card .pc-list em{font-size:.78rem;color:#5a6275}
+.prog-card .pc-foot{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#7a6a45;margin:14px 0 0}
+
+/* programme card: black & gold */
+.prog-card{background:#121212;color:#e9dcc0;border-color:var(--gold);outline-color:rgba(184,151,90,.55);box-shadow:0 14px 30px rgba(0,0,0,.28);padding:26px 26px 20px}
+.prog-card .pc-org,.prog-card .pc-foot,.prog-card time{color:var(--gold)}
+.prog-card .pc-season{color:#d9bf86;font-size:1.3rem}
+.prog-card .pc-yr{color:#b8a57a}
+.prog-card .pc-list li{border-bottom-color:rgba(184,151,90,.4);padding:7px 0}
+.prog-card .pc-list span{color:#f3ead6;font-size:.95rem}
+.prog-card .pc-list em{color:#b8a57a}
+/* compact card to match text column */
+.prog-card{padding:16px 22px 12px;outline-offset:-7px;align-self:start;max-width:440px;margin-left:auto}
+.prog-card .pc-org{font-size:.62rem}
+.prog-card .pc-season{font-size:1.08rem;margin-top:5px}
+.prog-card .pc-yr{font-size:.8rem;margin-top:1px}
+.prog-card .pc-rule{margin:8px auto 6px;width:46px}
+.prog-card .pc-list li{padding:4px 0;gap:0;display:grid;grid-template-columns:78px 1fr;column-gap:10px;text-align:left;align-items:baseline}
+.prog-card .pc-list time{font-size:.64rem;grid-row:span 2}
+.prog-card .pc-list span{font-size:.84rem;line-height:1.2}
+.prog-card .pc-list em{font-size:.68rem;line-height:1.2}
+.prog-card .pc-foot{font-size:.6rem;margin-top:7px}
+.prog-card{transform:none!important;rotate:none!important}
+.gig-tabs{list-style:none;margin:1.25rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.85rem 1rem}
+.gig-tabs a{display:inline-block;padding:.75rem 1.4rem;border:1px solid var(--gold,#b8954a);border-radius:999px;color:inherit;text-decoration:none;font-size:1.02rem;line-height:1.35;transition:background .2s,color .2s}
+.gig-tabs a:hover,.gig-tabs a:focus-visible{background:var(--navy,#1b2a44);color:#fff}
+.prog-card{background:#f3e9d2;color:#2a2418;outline-color:rgba(160,128,64,.7);box-shadow:0 12px 26px rgba(60,45,20,.16),0 2px 6px rgba(60,45,20,.08)}
+.prog-card .pc-org,.prog-card .pc-foot,.prog-card time{color:#8f6f2e}
+.prog-card .pc-season{color:#8f6f2e}
+.prog-card .pc-yr{color:#6e5a34}
+.prog-card .pc-list li{border-bottom-color:rgba(160,128,64,.45)}
+.prog-card .pc-list span{color:#2a2418}
+.prog-card .pc-list em{color:#5c4f38}
+.rot-img{transition:opacity 1.2s ease}
+.rot-img.rot-out{opacity:0}
+/* roster member CV links */
+.roster .name a{color:inherit;text-decoration:none;transition:color .2s}
+.roster .name a:hover,.roster .name a:focus-visible{color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px;outline:none}
+/* ring carousel */
+.season-pics.ring{display:block;position:relative;top:auto;align-self:stretch;overflow:hidden;width:100%;max-width:100%;
+ -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%)}
+.season-pics.ring.vert{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 86%,transparent 100%)}
+.season-pics.ring .ring-card{position:absolute;left:50%;top:0;margin:0;overflow:hidden;will-change:transform;background:#0001}
+.season-pics.ring .ring-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity 1.2s ease}
+
+/* fixed music background layer (iOS-safe) */
+html{background:var(--ivory)}
+body{background:transparent}
+body::before,body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none}
+body::before{background:url(img/bg-pentagram.jpg) left center/65% 100% no-repeat;opacity:.22;filter:brightness(1.5) saturate(.75);
+ -webkit-mask-image:linear-gradient(90deg,#000 35%,transparent 65%);mask-image:linear-gradient(90deg,#000 35%,transparent 65%)}
+body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;opacity:.4;
+ -webkit-mask-image:linear-gradient(90deg,transparent 35%,#000 65%);mask-image:linear-gradient(90deg,transparent 35%,#000 65%)}
+@media(max-width:860px){
+ body::before{background-position:center top;background-size:100% 65%;-webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 65%);mask-image:linear-gradient(180deg,#000 35%,transparent 65%)}
+ body::after{background-position:center bottom;background-size:100% 65%;-webkit-mask-image:linear-gradient(180deg,transparent 35%,#000 65%);mask-image:linear-gradient(180deg,transparent 35%,#000 65%)}}
+
+/* subtle staff pattern on hero navy band */
+.hero{background:#14213d url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22520%22%20height%3D%22240%22%3E%3Cg%20stroke%3D%22%23c9a96a%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20opacity%3D%22.16%22%3E%3Cpath%20d%3D%22M0%2060H520%22/%3E%3Cpath%20d%3D%22M0%2069H520%22/%3E%3Cpath%20d%3D%22M0%2078H520%22/%3E%3Cpath%20d%3D%22M0%2087H520%22/%3E%3Cpath%20d%3D%22M0%2096H520%22/%3E%3Cpath%20d%3D%22M0%20170H520%22/%3E%3Cpath%20d%3D%22M0%20179H520%22/%3E%3Cpath%20d%3D%22M0%20188H520%22/%3E%3Cpath%20d%3D%22M0%20197H520%22/%3E%3Cpath%20d%3D%22M0%20206H520%22/%3E%3Cellipse%20cx%3D%2290%22%20cy%3D%2287%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%2090%2087%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M94.6%2087V59%22/%3E%3Cellipse%20cx%3D%22118%22%20cy%3D%2278%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20118%2078%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M122.6%2078V50%22/%3E%3Cellipse%20cx%3D%22300%22%20cy%3D%2296%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20300%2096%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M304.6%2096V68%22/%3E%3Cellipse%20cx%3D%22330%22%20cy%3D%22105%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20330%20105%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M334.6%20105V77%22/%3E%3Cpath%20d%3D%22M334.6%20105V77L304.6%2068V96%22/%3E%3Cellipse%20cx%3D%22210%22%20cy%3D%22197%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20210%20197%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M214.6%20197V169%22/%3E%3Cellipse%20cx%3D%22440%22%20cy%3D%22179%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20440%20179%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M444.6%20179V151%22/%3E%3Cellipse%20cx%3D%22466%22%20cy%3D%22188%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20466%20188%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M470.6%20188V160%22/%3E%3C/g%3E%3C/svg%3E") center top/520px 240px repeat}
+
+/* semi-transparent navy band with orchestra photo behind it */
+.hero{--ph:clamp(240px,26vw,440px);background:#14213d}
+.hero::before{bottom:0;height:auto;background:linear-gradient(180deg,rgba(20,33,61,0) 0,rgba(20,33,61,0) 30%,rgba(20,33,61,.45) 50%,rgba(20,33,61,.75) 66%,#14213d 85%,#14213d 100%),url(img/hero-orkestar.jpg) center top/cover no-repeat}
+.hero::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 30%,#000 62%);mask-image:linear-gradient(180deg,transparent 0,transparent 30%,#000 62%);background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22520%22%20height%3D%22240%22%3E%3Cg%20stroke%3D%22%23c9a96a%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20opacity%3D%22.16%22%3E%3Cpath%20d%3D%22M0%2060H520%22/%3E%3Cpath%20d%3D%22M0%2069H520%22/%3E%3Cpath%20d%3D%22M0%2078H520%22/%3E%3Cpath%20d%3D%22M0%2087H520%22/%3E%3Cpath%20d%3D%22M0%2096H520%22/%3E%3Cpath%20d%3D%22M0%20170H520%22/%3E%3Cpath%20d%3D%22M0%20179H520%22/%3E%3Cpath%20d%3D%22M0%20188H520%22/%3E%3Cpath%20d%3D%22M0%20197H520%22/%3E%3Cpath%20d%3D%22M0%20206H520%22/%3E%3Cellipse%20cx%3D%2290%22%20cy%3D%2287%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%2090%2087%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M94.6%2087V59%22/%3E%3Cellipse%20cx%3D%22118%22%20cy%3D%2278%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20118%2078%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M122.6%2078V50%22/%3E%3Cellipse%20cx%3D%22300%22%20cy%3D%2296%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20300%2096%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M304.6%2096V68%22/%3E%3Cellipse%20cx%3D%22330%22%20cy%3D%22105%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20330%20105%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M334.6%20105V77%22/%3E%3Cpath%20d%3D%22M334.6%20105V77L304.6%2068V96%22/%3E%3Cellipse%20cx%3D%22210%22%20cy%3D%22197%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20210%20197%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M214.6%20197V169%22/%3E%3Cellipse%20cx%3D%22440%22%20cy%3D%22179%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20440%20179%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M444.6%20179V151%22/%3E%3Cellipse%20cx%3D%22466%22%20cy%3D%22188%22%20rx%3D%225.2%22%20ry%3D%223.8%22%20transform%3D%22rotate%28-20%20466%20188%29%22%20fill%3D%22%23c9a96a%22%20stroke%3D%22none%22/%3E%3Cpath%20d%3D%22M470.6%20188V160%22/%3E%3C/g%3E%3C/svg%3E") center top/520px 240px repeat}
+.hero .hero-inner{z-index:1}
+.hero h1,.hero .lead,.hero .eyebrow{text-shadow:0 1px 3px rgba(10,18,36,.9),0 2px 14px rgba(10,18,36,.8)}
+
+/* O nama photo: same frame as next-concert picture */
+#onama .photo{border-radius:14px;box-shadow:0 0 0 6px #faf8f3,0 0 0 7px var(--gold)}
+.hero .lead,.hero .eyebrow{text-shadow:0 1px 2px rgba(10,18,36,.95),0 0 10px rgba(10,18,36,.85),0 2px 22px rgba(10,18,36,.7)}
+
+/* gallery: horizontal carousel */
+.gal-car{position:relative}
+.gal-car .gallery{display:flex;grid-template-columns:none;grid-auto-rows:auto;gap:var(--s2);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;padding:4px 2px 12px;cursor:grab;outline:none}
+.gal-car .gallery:focus-visible{box-shadow:0 0 0 2px var(--gold)}
+.gal-car .gallery.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.gal-car .gallery.dragging .tile{pointer-events:none}
+.gal-car .tile{flex:0 0 auto;height:300px;aspect-ratio:3/2;scroll-snap-align:start;grid-column:auto;grid-row:auto}
+.gal-car .tile img{user-select:none;-webkit-user-drag:none}
+.gal-nav{position:absolute;top:calc(50% - 6px);transform:translateY(-50%);z-index:2;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:var(--navy);color:var(--gold);font-size:1.9rem;line-height:1;display:flex;align-items:center;justify-content:center;padding:0 0 4px;cursor:pointer;box-shadow:0 4px 14px rgba(20,33,61,.25);transition:background .2s,color .2s,opacity .2s}
+.gal-nav:hover,.gal-nav:focus-visible{background:var(--gold);color:var(--navy);outline:none}
+.gal-nav:disabled{opacity:.35;cursor:default}
+.gal-nav.prev{left:-14px}.gal-nav.next{right:-14px}
+@media(max-width:860px){.gal-car .tile{height:200px}.gal-nav{width:38px;height:38px;font-size:1.6rem}.gal-nav.prev{left:4px}.gal-nav.next{right:4px}}
+/* gallery: concave curved carousel */
+.gal-car .gallery{align-items:center;padding:48px 2px 56px;scroll-snap-type:x proximity}
+.gal-car .tile{height:280px;aspect-ratio:3/4;border-radius:14px;scroll-snap-align:center;will-change:transform;transform-origin:50% 50%;backface-visibility:hidden}
+.gal-car .tile img{border-radius:14px}
+.gal-car .tile:hover img{transform:none}
+.gal-car .gallery>.tile:first-child{margin-left:calc(50% - 105px)}.gal-car .gallery>.tile:last-child{margin-right:calc(50% - 105px)}
+@media(max-width:860px){.gal-car .tile{height:200px}.gal-car .gallery{padding:34px 2px 40px}.gal-car .gallery>.tile:first-child{margin-left:calc(50% - 75px)}.gal-car .gallery>.tile:last-child{margin-right:calc(50% - 75px)}}
+.gal-car .tile,.gal-car .tile img{border-radius:18px}
+.gal-car .tile{position:relative;box-shadow:0 6px 18px rgba(20,33,61,.12)}
+.gal-car .tile::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),inset 0 0 18px rgba(20,33,61,.22)}
+.gal-car .gallery{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
+/* lightbox navigation */
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid var(--gold);background:var(--navy);color:var(--gold);font-size:2.2rem;line-height:1;display:flex;align-items:center;justify-content:center;padding:0 0 5px;cursor:pointer;z-index:2;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:background .2s,color .2s}
+.lb-nav:hover,.lb-nav:focus-visible{background:var(--gold);color:var(--navy);outline:none}
+.lb-nav.prev{left:clamp(8px,2vw,28px)}.lb-nav.next{right:clamp(8px,2vw,28px)}
+.lb-count{position:absolute;bottom:clamp(10px,2vh,22px);left:50%;transform:translateX(-50%);color:#e9dcc0;font-size:.9rem;letter-spacing:.08em;background:rgba(13,21,40,.6);padding:4px 12px;border-radius:999px}
+.lb-nav[hidden],.lb-count[hidden]{display:none}
+@media(max-width:860px){.lb-nav{width:42px;height:42px;font-size:1.8rem}}
+
+/* O nama: second static photo */
+.onama-pics{display:grid;gap:28px}
+#onama .onama-2 img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}

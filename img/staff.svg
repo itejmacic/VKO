@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="480" viewBox="0 0 120 480">
+<g stroke="#b8975a" stroke-opacity=".55" stroke-width="1"><line x1="40" y1="0" x2="40" y2="480"/><line x1="50" y1="0" x2="50" y2="480"/><line x1="60" y1="0" x2="60" y2="480"/><line x1="70" y1="0" x2="70" y2="480"/><line x1="80" y1="0" x2="80" y2="480"/></g>
+<g fill="#1f2d4a" fill-opacity=".55" stroke="#1f2d4a" stroke-opacity=".55" stroke-width="1.2">
+<ellipse cx="55" cy="40" rx="4" ry="5.5" transform="rotate(-20 55 40)"/><line x1="51" y1="42" x2="27" y2="42"/>
+<ellipse cx="65" cy="80" rx="4" ry="5.5" transform="rotate(-20 65 80)"/><line x1="61" y1="82" x2="37" y2="82"/>
+<ellipse cx="45" cy="130" rx="4" ry="5.5" transform="rotate(-20 45 130)"/><ellipse cx="60" cy="150" rx="4" ry="5.5" transform="rotate(-20 60 150)"/><line x1="41" y1="132" x2="22" y2="132"/><line x1="56" y1="152" x2="22" y2="152"/><line x1="22" y1="132" x2="22" y2="152" stroke-width="3"/>
+<ellipse cx="75" cy="210" rx="4" ry="5.5" fill="none" transform="rotate(-20 75 210)"/>
+<line x1="35" y1="250" x2="85" y2="250" stroke-width="1"/>
+<ellipse cx="50" cy="300" rx="4" ry="5.5" transform="rotate(-20 50 300)"/><line x1="46" y1="302" x2="22" y2="302"/>
+<ellipse cx="70" cy="340" rx="4" ry="5.5" transform="rotate(-20 70 340)"/><ellipse cx="55" cy="360" rx="4" ry="5.5" transform="rotate(-20 55 360)"/><ellipse cx="45" cy="380" rx="4" ry="5.5" transform="rotate(-20 45 380)"/><line x1="66" y1="342" x2="24" y2="342"/><line x1="51" y1="362" x2="24" y2="362"/><line x1="41" y1="382" x2="24" y2="382"/><line x1="24" y1="342" x2="24" y2="382" stroke-width="3"/>
+<ellipse cx="65" cy="430" rx="4" ry="5.5" transform="rotate(-20 65 430)"/><line x1="61" y1="432" x2="37" y2="432"/>
+</g></svg>
