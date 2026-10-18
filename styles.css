@@ -124,16 +124,6 @@ p+p{margin-top:var(--s2)}
 .awards strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.4rem;color:var(--navy)}
 .awards span{font-size:.9rem;color:var(--muted)}
 
-/* contact */
-address{font-style:normal;line-height:1.9}
-form{display:grid;gap:var(--s3)}
-label{display:grid;gap:var(--s1);font-size:.85rem;font-weight:600;color:var(--navy)}
-input,textarea{font:inherit;font-weight:400;padding:12px var(--s2);border:1px solid #cfc6b5;border-radius:2px;background:#fff}
-input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
-.invalid{border-color:#a33}.err{color:#a33;font-weight:400;min-height:1em}
-.form-status{color:var(--navy);font-weight:500}
-form .btn{justify-self:start}
-
 .footer{background:var(--navy);color:#ffffffcc;padding:var(--s6) 0;font-size:.875rem}
 .footer .small{color:#ffffff8c;margin-top:var(--s1)}
 

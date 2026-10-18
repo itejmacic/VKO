@@ -8,19 +8,6 @@ document.querySelectorAll('.tile').forEach(t=>t.addEventListener('click',()=>{co
 const close=()=>lb.hidden=true;
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-close'))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-const form=document.getElementById('contact-form'),status=form.querySelector('.form-status');
-form.addEventListener('submit',e=>{e.preventDefault();let ok=true;
- form.querySelectorAll('input:not([type=hidden]):not([name=_honey]),textarea').forEach(f=>{const err=f.nextElementSibling;let m='';
-  if(!f.value.trim())m='Ovo polje je obavezno.';
-  else if(f.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value))m='Unesite ispravnu e-mail adresu.';
-  else if(f.minLength>0&&f.value.trim().length<f.minLength)m=`Unesite barem ${f.minLength} znakova.`;
-  err.textContent=m;f.classList.toggle('invalid',!!m);if(m)ok=false});
- if(!ok){status.textContent='';return}
- status.textContent='Šaljem…';
- fetch('https://formsubmit.co/ajax/andelkoilcic@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
-  .then(r=>r.json()).then(d=>{if(d.success==='true'||d.success===true){status.textContent='Hvala na poruci.';form.reset()}else status.textContent='Poruka nije poslana. Pokušajte ponovno.'})
-  .catch(()=>{status.textContent='Poruka nije poslana. Pokušajte ponovno.'})});
-
 document.querySelectorAll('.toggle-btn').forEach(btn=>{
   const panel=document.getElementById(btn.getAttribute('aria-controls'));
   const label=btn.querySelector('.tb-text');

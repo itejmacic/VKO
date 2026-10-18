@@ -6,7 +6,7 @@
 <title>Varaždinski komorni orkestar — 33. sezona 2026./2027.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="styles.css?v=10">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <a href="#hero" class="logo"><img src="img/logomala.jpg" alt="" class="logo-img"><span>Varaždinski komorni orkestar</span></a>
   <button class="nav-toggle" aria-label="Izbornik" aria-expanded="false">☰</button>
   <nav class="nav-links">
-    <a href="#onama">O nama</a><a href="#koncert">Sljedeći koncert</a><a href="#sezona">Sezona</a><a href="#pretplata">Pretplata</a><a href="#clanovi">Članovi</a><a href="#suradnje">Suradnje</a><a href="#galerija">Galerija</a><a href="#kontakt">Kontakt</a>
+    <a href="#koncert">Sljedeći koncert</a><a href="#sezona">Sezona</a><a href="#pretplata">Pretplata</a><a href="#clanovi">Članovi</a><a href="#suradnje">Suradnje</a><a href="#galerija">Galerija</a><a href="#onama">O nama</a>
   </nav>
 </header>
 
@@ -29,18 +29,7 @@
   </div>
 </section>
 
-<section id="onama" class="section">
-  <div class="container split reveal">
-    <div class="prose">
-      <p class="kicker">O nama</p>
-      <h2>Varaždinski komorni orkestar</h2>
-      <p>Varaždinski komorni orkestar danas nastavlja višegodišnju tradiciju komornog i orkestralnog muziciranja u Varaždinu, osobito jaku pedesetih i šezdesetih godina prošlog stoljeća. Nakon što je dekretom ukinut rad ondašnjeg kazališnog orkestra, Varaždin je tridesetak godina bio bez vlastitog orkestralnog ansambla, da bi se tek u samostalnoj Hrvatskoj konačno ostvarila zamisao o orkestru kao posebnom i trajnom čimbeniku kulturnog života grada.</p>
-      <p>Kapitalna djelatnost orkestra je ciklus od pet premijernih koncerata u koncertnoj dvorani HNK-a u Varaždinu, kao i redovito sudjelovanje na Varaždinskim baroknim večerima. Orkestar ujedno nastupa i diljem Hrvatske: Zagreb, Dubrovnik, Split, Zadar, Opatija, Osijek, Karlovac, Čakovec… Gostovao je u Sloveniji, Njemačkoj, Austriji te Bosni i Hercegovini.</p>
-      <p>Iako vrlo često nastupa bez dirigenta, orkestar povremeno surađuje s dirigentima — uglednim umjetnicima: Pavle Dešpalj (ujedno i počasni član orkestra), Milan Horvat, Kazushi Ono, Marko Letonja, Vjekoslav Šutej, Uroš Lajovic, Vladimir Kranjčević, Mladen Tarbuk, Ivo Lipanović, Zoran Juranić, Ivan Repušić…</p>
-    </div>
-    <div class="onama-pics"><figure class="photo tall no-rot"><img src="img/galerija-19.jpg" alt="Varaždinski komorni orkestar na pozornici" loading="lazy"></figure></div>
-  </div>
-</section>
+
 
 <section id="koncert" class="section alt">
   <div class="container">
@@ -456,22 +445,16 @@
   </div>
 </section>
 
-<section id="kontakt" class="section alt">
+<section id="onama" class="section alt">
   <div class="container split reveal">
-    <div>
-      <h2>Kontakt</h2>
-      <address>Varaždinski komorni orkestar<br>Augusta Cesarca 1<br>42000 Varaždin<br>tel. <a href="tel:+385998196398">099 819 6398</a><br><a href="https://www.facebook.com/VarazdinskiKomorniOrkestar" rel="noopener">Facebook</a></address>
+    <div class="prose">
+      <p class="kicker">O nama</p>
+      <h2>Varaždinski komorni orkestar</h2>
+      <p>Varaždinski komorni orkestar danas nastavlja višegodišnju tradiciju komornog i orkestralnog muziciranja u Varaždinu, osobito jaku pedesetih i šezdesetih godina prošlog stoljeća. Nakon što je dekretom ukinut rad ondašnjeg kazališnog orkestra, Varaždin je tridesetak godina bio bez vlastitog orkestralnog ansambla, da bi se tek u samostalnoj Hrvatskoj konačno ostvarila zamisao o orkestru kao posebnom i trajnom čimbeniku kulturnog života grada.</p>
+      <p>Kapitalna djelatnost orkestra je ciklus od pet premijernih koncerata u koncertnoj dvorani HNK-a u Varaždinu, kao i redovito sudjelovanje na Varaždinskim baroknim večerima. Orkestar ujedno nastupa i diljem Hrvatske: Zagreb, Dubrovnik, Split, Zadar, Opatija, Osijek, Karlovac, Čakovec… Gostovao je u Sloveniji, Njemačkoj, Austriji te Bosni i Hercegovini.</p>
+      <p>Iako vrlo često nastupa bez dirigenta, orkestar povremeno surađuje s dirigentima — uglednim umjetnicima: Pavle Dešpalj (ujedno i počasni član orkestra), Milan Horvat, Kazushi Ono, Marko Letonja, Vjekoslav Šutej, Uroš Lajovic, Vladimir Kranjčević, Mladen Tarbuk, Ivo Lipanović, Zoran Juranić, Ivan Repušić…</p>
     </div>
-    <form id="contact-form" action="https://formsubmit.co/andelkoilcic@gmail.com" method="POST" novalidate>
-      <input type="hidden" name="_subject" value="Nova poruka s web stranice VKO">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-      <label>Ime<input name="name" type="text" required minlength="2"><small class="err"></small></label>
-      <label>E-mail<input name="email" type="email" required><small class="err"></small></label>
-      <label>Poruka<textarea name="message" rows="5" required minlength="10"></textarea><small class="err"></small></label>
-      <button type="submit" class="btn">Pošalji</button>
-      <p class="form-status" role="status"></p>
-    </form>
+    <div class="onama-pics"><figure class="photo tall no-rot"><img src="img/galerija-19.jpg" alt="Varaždinski komorni orkestar na pozornici" loading="lazy"></figure></div>
   </div>
 </section>
 </main>
@@ -574,7 +557,7 @@ Varaždinu i GK Marina Držića u Dubrovniku pod ravnanjem mo. Ivana Huta, a u r
 <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
 <aside class="drawer" id="solo-drawer" role="dialog" aria-modal="true" aria-label="Biografija solista" hidden><button type="button" class="drawer-close" aria-label="Zatvori">×</button><div class="drawer-body solo"></div></aside>
 <!--/solo-tpl-->
-<script src="script.js?v=9"></script>
+<script src="script.js?v=10"></script>
 <script data-goatcounter="https://vkohr.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
