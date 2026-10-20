@@ -88,7 +88,7 @@ addEventListener('vko-rotate',()=>{cards.forEach(c=>{c.k=(c.k+1)%pool.length;con
 })();
 
 /* Galerija: horizontalni karusel (strelice, povlačenje mišem, swipe, trackpad) */
-(()=>{const g=document.querySelector('.gal-car .gallery');if(!g)return;const car=g.parentElement;
+document.querySelectorAll('.gal-car .gallery').forEach(g=>{const car=g.parentElement;
 const step=()=>Math.max(g.clientWidth*.8,200);
 car.querySelector('.gal-nav.prev').addEventListener('click',()=>g.scrollBy({left:-step(),behavior:'smooth'}));
 car.querySelector('.gal-nav.next').addEventListener('click',()=>g.scrollBy({left:step(),behavior:'smooth'}));
@@ -100,9 +100,9 @@ g.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button!==0)re
 addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>5&&!moved){moved=true;g.classList.add('dragging')}if(moved)g.scrollLeft=sl-dx});
 addEventListener('pointerup',()=>{if(!down)return;down=false;if(moved){g.classList.remove('dragging');const t=g.querySelector('.tile');}});
 g.addEventListener('click',e=>{if(moved){e.stopPropagation();e.preventDefault();moved=false}},true);
-})();
+});
 /* Galerija: konkavni 3D izgled (izračun po kartici pri skrolanju) */
-(()=>{const g=document.querySelector('.gal-car .gallery');if(!g)return;const tiles=[...g.querySelectorAll('.tile')];
+document.querySelectorAll('.gal-car .gallery').forEach(g=>{const tiles=[...g.querySelectorAll('.tile')];
 const red=matchMedia('(prefers-reduced-motion: reduce)');let q=false;
 function upd(){q=false;if(red.matches){tiles.forEach(t=>t.style.transform='');return}
  const r=g.getBoundingClientRect(),cx=r.left+r.width/2,half=r.width/2;
@@ -112,16 +112,16 @@ function upd(){q=false;if(red.matches){tiles.forEach(t=>t.style.transform='');re
   t.style.transform=`translateX(${tx.toFixed(1)}px) perspective(900px) rotateY(${rot.toFixed(2)}deg) scale(${sc.toFixed(3)})`})}
 const req=()=>{if(!q){q=true;requestAnimationFrame(upd)}};
 g.addEventListener('scroll',req,{passive:true});addEventListener('resize',req);red.addEventListener?.('change',req);
-upd();requestAnimationFrame(()=>{const st=g.querySelector('[data-gal-start]');g.scrollLeft=st?st.offsetLeft-g.offsetLeft+st.offsetWidth/2-g.clientWidth/2:(g.scrollWidth-g.clientWidth)/2*0.35;upd()});})();
+upd();requestAnimationFrame(()=>{const st=g.querySelector('[data-gal-start]');g.scrollLeft=st?st.offsetLeft-g.offsetLeft+st.offsetWidth/2-g.clientWidth/2:(g.scrollWidth-g.clientWidth)/2*0.35;upd()});});
 /* Lightbox: prethodna/sljedeća fotografija galerije (strelice, tipkovnica, swipe) */
 (()=>{const lb=document.getElementById('lightbox');if(!lb)return;const img=lb.querySelector('.lb-img');
-const tiles=[...document.querySelectorAll('.gallery .tile')];if(!tiles.length)return;let cur=-1;
+if(!document.querySelector('.gallery .tile'))return;let tiles=[],cur=-1;
 const mk=(c,l,t)=>{const b=document.createElement('button');b.type='button';b.className='lb-nav '+c;b.setAttribute('aria-label',l);b.innerHTML=t;lb.appendChild(b);return b};
 const prev=mk('prev','Prethodna fotografija','&#8249;'),next=mk('next','Sljedeća fotografija','&#8250;');
 const cnt=document.createElement('div');cnt.className='lb-count';cnt.setAttribute('aria-live','polite');lb.appendChild(cnt);
 const show=i=>{cur=(i+tiles.length)%tiles.length;const im=tiles[cur].querySelector('img');img.src=im.src;img.alt=im.alt;cnt.textContent=(cur+1)+' / '+tiles.length};
 const nav=on=>{prev.hidden=next.hidden=cnt.hidden=!on};
-document.addEventListener('click',e=>{const t=e.target.closest('.tile');if(!t)return;const i=tiles.indexOf(t);if(i<0){nav(false);cur=-1;return}setTimeout(()=>{show(i);nav(true)},0)});
+document.addEventListener('click',e=>{const t=e.target.closest('.tile');if(!t)return;const gal=t.closest('.gallery');tiles=gal?[...gal.querySelectorAll('.tile')]:[];const i=tiles.indexOf(t);if(i<0){nav(false);cur=-1;return}setTimeout(()=>{show(i);nav(true)},0)});
 prev.addEventListener('click',e=>{e.stopPropagation();show(cur-1)});next.addEventListener('click',e=>{e.stopPropagation();show(cur+1)});
 document.addEventListener('keydown',e=>{if(lb.hidden||cur<0)return;if(e.key==='ArrowLeft'){show(cur-1);e.preventDefault()}else if(e.key==='ArrowRight'){show(cur+1);e.preventDefault()}});
 let sx=null,sy=0;lb.addEventListener('touchstart',e=>{if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY}},{passive:true});
