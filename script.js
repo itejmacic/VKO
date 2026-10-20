@@ -51,7 +51,7 @@ dr.querySelector('.drawer-close').addEventListener('click',shut);bd.addEventList
 document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});})();
 
 /* Automatska izmjena fotografija ispod naslovne slike (sinkrono, svakih 10 s) */
-(()=>{const pool=Array.from({length:27},(_,i)=>`img/koncert-${String(i+1).padStart(2,'0')}.jpg`);
+(()=>{const pool=[...Array.from({length:21},(_,i)=>`img/koncert-2026-10-18/${String(i+1).padStart(2,'0')}.jpg`),...Array.from({length:27},(_,i)=>`img/koncert-${String(i+1).padStart(2,'0')}.jpg`)];
 pool.forEach(u=>{const p=new Image();p.src=u});
 const imgs=[...document.querySelectorAll('figure.photo:not(.no-rot) img')].filter(i=>!i.closest('.season-pics')).filter(i=>/img\/koncert-\d+\.jpg/.test(i.getAttribute('src')));
 const ks=imgs.map((img,n)=>{const k=pool.indexOf(img.getAttribute('src'));img.classList.add('rot-img');return k<0?n:k});
@@ -62,7 +62,7 @@ setInterval(()=>{imgs.forEach(img=>img.classList.add('rot-out'));window.dispatch
 
 /* Ring carousel uz program sezone (vertikalni kotač na desktopu, horizontalni na mobitelu) */
 (()=>{const box=document.querySelector('.season-pics');if(!box)return;
-const pool=Array.from({length:27},(_,i)=>`img/koncert-${String(i+1).padStart(2,'0')}.jpg`);
+const pool=[...Array.from({length:21},(_,i)=>`img/koncert-2026-10-18/${String(i+1).padStart(2,'0')}.jpg`),...Array.from({length:27},(_,i)=>`img/koncert-${String(i+1).padStart(2,'0')}.jpg`)];
 const init=[...box.querySelectorAll('img')].map(i=>pool.indexOf(i.getAttribute('src'))).filter(k=>k>=0);
 const order=[...init];for(let i=0;order.length<pool.length;i++){const k=((init[0]||0)+i)%pool.length;if(!order.includes(k))order.push(k)}
 const N=order.length;box.innerHTML='';box.classList.add('ring');
@@ -112,7 +112,7 @@ function upd(){q=false;if(red.matches){tiles.forEach(t=>t.style.transform='');re
   t.style.transform=`translateX(${tx.toFixed(1)}px) perspective(900px) rotateY(${rot.toFixed(2)}deg) scale(${sc.toFixed(3)})`})}
 const req=()=>{if(!q){q=true;requestAnimationFrame(upd)}};
 g.addEventListener('scroll',req,{passive:true});addEventListener('resize',req);red.addEventListener?.('change',req);
-upd();requestAnimationFrame(()=>{g.scrollLeft=(g.scrollWidth-g.clientWidth)/2*0.35;upd()});})();
+upd();requestAnimationFrame(()=>{const st=g.querySelector('[data-gal-start]');g.scrollLeft=st?st.offsetLeft-g.offsetLeft+st.offsetWidth/2-g.clientWidth/2:(g.scrollWidth-g.clientWidth)/2*0.35;upd()});})();
 /* Lightbox: prethodna/sljedeća fotografija galerije (strelice, tipkovnica, swipe) */
 (()=>{const lb=document.getElementById('lightbox');if(!lb)return;const img=lb.querySelector('.lb-img');
 const tiles=[...document.querySelectorAll('.gallery .tile')];if(!tiles.length)return;let cur=-1;
