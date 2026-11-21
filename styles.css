@@ -554,10 +554,11 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
 /* Sljedeći koncert: program lijevo, mashup desno; izvođači ispod */
 @media (min-width: 861px) {
   #koncert .container{max-width:1400px}
-  #koncert .koncert-prog{grid-template-columns:minmax(0,1fr) minmax(420px,460px);gap:var(--s4);align-items:start;margin-top:0}
+  #koncert .koncert-prog{grid-template-columns:minmax(0,1fr) minmax(400px,420px);gap:var(--s4);align-items:start;margin-top:0}
   #koncert .koncert-prog .aside-col{position:sticky;top:88px}
-  #koncert .next-arch{max-width:460px;width:100%;margin:0 0 0 auto}
-  #koncert .izvodaci-list .program{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:var(--s8);border-top:1px solid var(--line)}
+  #koncert .next-arch{max-width:420px;width:100%;margin:0 0 0 auto}
+  #koncert .izvodaci-list .guests-list{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:var(--s8);row-gap:10px;margin:var(--s3) 0 0}
+  #koncert .izvodaci-list > .guest-line{margin-bottom:2px}
 }
 @media (max-width: 860px) {
   #koncert .next-arch{max-width:none;width:100%;margin:0 auto}
@@ -598,26 +599,27 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
   font-family:var(--serif);
   font-style:italic;
   font-weight:500;
+  font-size:1.19rem;
   color:var(--gold);
   letter-spacing:.01em;
 }
 #koncert .works .piece{
   font-family:var(--serif);
   font-weight:500;
-  font-size:1.08rem;
+  font-size:1.21rem;
   color:var(--navy);
   letter-spacing:.005em;
 }
 #koncert .works .aria{
   font-family:var(--serif);
   font-weight:500;
-  font-size:.98rem;
+  font-size:1.10rem;
   color:#5d6475;
 }
 #koncert .works .who{
   display:block;
   margin-top:.12em;
-  font:400 .82rem var(--sans);
+  font:400 .92rem var(--sans);
   color:var(--muted);
   line-height:1.4;
   letter-spacing:.01em;
@@ -645,7 +647,7 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
   height:1px;
   background:var(--gold);
 }
-@media (min-width:861px){
+@media (min-width:1360px){
   #koncert .works>li:not(.pause){white-space:nowrap}
   #koncert .works .who{white-space:normal}
 }
@@ -655,9 +657,16 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
     white-space:normal;
   }
   #koncert .works>li:not(.pause)::before{font-size:1.15rem;top:.45rem;width:1.6rem}
-  #koncert .works .piece{font-size:1.05rem}
-  #koncert .works .aria{font-size:.98rem}
+  #koncert .works em{font-size:1.12rem}
+  #koncert .works .piece{font-size:1.18rem}
+  #koncert .works .aria{font-size:1.10rem}
+  #koncert .works .who{font-size:.9rem}
   #koncert .works>li.pause{gap:.75rem;padding:.7rem 0}
   #koncert .works>li.pause::before,
   #koncert .works>li.pause::after{width:2.4rem}
+}
+
+#koncert .izvodaci-list .guest-txt strong{line-height:1.25}
+@media (max-width:860px){
+  #koncert .izvodaci-list .guests-list{display:flex;flex-direction:column;gap:10px;margin-top:var(--s3)}
 }
