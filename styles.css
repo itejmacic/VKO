@@ -546,3 +546,6 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
 /* Sljedeći koncert: imena izvođača otvaraju biografiju */
 .perf-link{color:inherit;text-decoration:none;cursor:pointer}
 .perf-link:hover,.perf-link:focus-visible,.perf-link:hover span,.perf-link:focus-visible span{color:var(--navy);text-decoration:underline;text-underline-offset:3px;outline:none}
+
+/* Sljedeći koncert: naslov koncerta istaknutiji, u stilu naslova u #sezona */
+#koncert .section-head h2{font-weight:600;color:var(--navy)}
