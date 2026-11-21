@@ -769,9 +769,9 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
 }
 .hero-v1 .hero-inner{
   position:relative;z-index:1;
-  max-width:none;width:100%;
-  margin:0;
-  padding:clamp(48px,8vw,96px) var(--s5) clamp(40px,6vw,80px) var(--s4);
+  max-width:1160px;width:100%;
+  margin:0 auto;
+  padding:clamp(48px,8vw,96px) var(--s5) clamp(40px,6vw,80px);
   text-align:left;
 }
 .hero-v1 .eyebrow{
@@ -818,9 +818,90 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
   font-size:.95rem;margin-top:6px;
 }
 .hero-v1 .hero-cta{justify-content:flex-start;margin-top:var(--s4)}
+
+/* Desktop: lock the 1440 preview composition and scale it uniformly (cqw).
+   Reference: preview hero at 1440 is 1440×854 (text inset 180px, as in v1-desktop.png).
+   Text position matches the sketch (180px left inset at 1440), reverting the left-shift. */
+@media (min-width:861px){
+  .hero.hero-v1{
+    container-type:inline-size;
+    container-name:hero;
+    width:100%;
+    min-height:0;
+    height:auto;
+    aspect-ratio:1440 / 854;
+    display:flex;
+    align-items:flex-end;
+  }
+  .hero-v1 .hero-inner{
+    max-width:calc(1160 / 1440 * 100cqw);
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    padding:calc(96 / 1440 * 100cqw) calc(40 / 1440 * 100cqw) calc(80 / 1440 * 100cqw);
+    text-align:left;
+  }
+  .hero-v1 .eyebrow{
+    font-size:calc(12.8 / 1440 * 100cqw);
+    line-height:calc(21.76 / 1440 * 100cqw);
+    letter-spacing:calc(2.304 / 1440 * 100cqw);
+    margin-bottom:calc(24 / 1440 * 100cqw);
+  }
+  .hero-v1 h1{
+    font-size:calc(86.4 / 1440 * 100cqw);
+    line-height:.96;
+    letter-spacing:calc(-1.728 / 1440 * 100cqw);
+    max-width:13ch;
+    margin:0;
+  }
+  .hero-v1 .lead{
+    font-size:calc(19.2 / 1440 * 100cqw);
+    line-height:calc(32.64 / 1440 * 100cqw);
+    max-width:calc(576 / 1440 * 100cqw);
+    margin:calc(24 / 1440 * 100cqw) 0 0;
+  }
+  .hero-v1 .hero-teaser{
+    margin-top:calc(48 / 1440 * 100cqw);
+    padding-top:calc(32 / 1440 * 100cqw);
+    max-width:calc(608 / 1440 * 100cqw);
+    border-top-width:calc(1 / 1440 * 100cqw);
+  }
+  .hero-v1 .hero-teaser-kicker{
+    font-size:calc(11.52 / 1440 * 100cqw);
+    font-weight:600;
+    font-family:var(--sans);
+    line-height:calc(14 / 1440 * 100cqw);
+    letter-spacing:calc(1.8432 / 1440 * 100cqw);
+    margin:0 0 calc(8 / 1440 * 100cqw);
+  }
+  .hero-v1 .hero-teaser-title{
+    font-size:calc(32.8 / 1440 * 100cqw);
+    line-height:1.15;
+    margin-top:calc(16 / 1440 * 100cqw);
+    margin-bottom:0;
+  }
+  .hero-v1 .hero-teaser-meta{
+    font-size:calc(15.2 / 1440 * 100cqw);
+    line-height:calc(25.84 / 1440 * 100cqw);
+    margin-top:calc(6 / 1440 * 100cqw);
+  }
+  .hero-v1 .hero-cta{
+    justify-content:flex-start;
+    margin-top:calc(32 / 1440 * 100cqw);
+    gap:calc(16 / 1440 * 100cqw);
+  }
+  .hero-v1 .btn{
+    font-size:calc(15.2 / 1440 * 100cqw);
+    letter-spacing:calc(0.304 / 1440 * 100cqw);
+    padding:calc(14 / 1440 * 100cqw) calc(28 / 1440 * 100cqw);
+    border-radius:calc(2 / 1440 * 100cqw);
+    border-width:calc(1 / 1440 * 100cqw);
+  }
+}
+
 @media (max-width:860px){
-  .hero.hero-v1{min-height:calc(100svh - 66px)}
-  .hero-v1 .hero-inner{padding:var(--s8) var(--s3) var(--s6);text-align:left}
+  .hero.hero-v1{min-height:calc(100svh - 66px);aspect-ratio:auto;container-type:normal}
+  .hero-v1 .hero-inner{padding:var(--s8) var(--s3) var(--s6);text-align:left;max-width:none;margin:0}
   .hero-v1 h1{font-size:clamp(2.5rem,11vw,3.4rem)}
   .hero-v1 .hero-media img{object-position:62% 28%}
 }
