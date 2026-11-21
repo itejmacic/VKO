@@ -35,7 +35,7 @@ p+p{margin-top:var(--s2)}
 /* nav */
 .nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:var(--s3);padding:var(--s2) var(--s4);background:var(--navy);color:#fff}
 .logo{display:flex;align-items:center;gap:var(--s2);color:#fff;text-decoration:none;font-family:var(--serif);font-size:1.25rem}
-.logo-img{height:32px;border-radius:2px;background:#fff}
+.logo-img{height:32px;width:auto}
 .nav-links{display:flex;gap:var(--s3)}
 .nav-links a{color:#ffffffd9;text-decoration:none;font-size:.875rem;font-weight:500;letter-spacing:.02em;padding:var(--s1) 0;border-bottom:1px solid transparent}
 .nav-links a:hover{color:#fff;border-color:var(--gold)}
