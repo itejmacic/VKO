@@ -560,3 +560,12 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
 @media (max-width: 860px) {
   #koncert .next-arch{max-width:none;width:100%;margin:0 auto}
 }
+
+/* Sljedeći koncert: jasniji prijelaz s programa na izvođače */
+#koncert .izvodaci-head{
+  margin-top:var(--s5);
+  padding-top:var(--s5);
+  border-top:2px solid var(--gold);
+}
+#koncert .izvodaci-head .panel-kicker{margin-bottom:var(--s3)}
+#koncert .izvodaci-head + .split{margin-top:0}
