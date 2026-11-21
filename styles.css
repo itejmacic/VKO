@@ -549,3 +549,10 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
 
 /* Sljedeći koncert: naslov koncerta istaknutiji, u stilu naslova u #sezona */
 #koncert .section-head h2{font-weight:600;color:var(--navy)}
+
+
+/* Sljedeći koncert: širi stupac programa da naslovi stavki stanu u jedan red na desktopu */
+@media (min-width: 861px) {
+  #koncert .container{max-width:1320px}
+  #koncert .split{grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:var(--s4)}
+}
