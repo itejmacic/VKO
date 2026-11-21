@@ -551,8 +551,12 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
 #koncert .section-head h2{font-weight:600;color:var(--navy)}
 
 
-/* Sljedeći koncert: širi stupac programa da naslovi stavki stanu u jedan red na desktopu */
+/* Sljedeći koncert: program preko cijele širine; mashup veći uz popis solista */
 @media (min-width: 861px) {
   #koncert .container{max-width:1320px}
-  #koncert .split{grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:var(--s4)}
+  #koncert .split{grid-template-columns:minmax(0,1fr) minmax(480px,560px);gap:var(--s5);margin-top:var(--s5);align-items:start}
+  #koncert .next-arch{max-width:560px;width:100%;margin:0 0 0 auto}
+}
+@media (max-width: 860px) {
+  #koncert .next-arch{max-width:none;width:100%;margin:0 auto}
 }
