@@ -557,8 +557,7 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
   #koncert .koncert-prog{grid-template-columns:minmax(0,1fr) minmax(400px,420px);gap:var(--s4);align-items:start;margin-top:0}
   #koncert .koncert-prog .aside-col{position:sticky;top:88px}
   #koncert .next-arch{max-width:420px;width:100%;margin:0 0 0 auto}
-  #koncert .izvodaci-list .guests-list{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:var(--s8);row-gap:10px;margin:var(--s3) 0 0}
-  #koncert .izvodaci-list > .guest-line{margin-bottom:2px}
+  #koncert .izvodaci-list .program{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:var(--s8);border-top:1px solid var(--line)}
 }
 @media (max-width: 860px) {
   #koncert .next-arch{max-width:none;width:100%;margin:0 auto}
@@ -666,7 +665,60 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
   #koncert .works>li.pause::after{width:2.4rem}
 }
 
-#koncert .izvodaci-list .guest-txt strong{line-height:1.25}
-@media (max-width:860px){
-  #koncert .izvodaci-list .guests-list{display:flex;flex-direction:column;gap:10px;margin-top:var(--s3)}
+/* Sljedeći koncert: IZVOĐAČI u starom slogu, s okruglim slikama lijevo */
+#koncert .izvodaci-list .izv-person{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+  color:inherit;
+  text-decoration:none;
 }
+#koncert .izvodaci-list .izv-txt{min-width:0}
+#koncert .izvodaci-list .artist-pic,
+#koncert .izvodaci-list .artist-pic.sm{
+  flex:0 0 auto;
+  width:40px;
+  height:40px;
+}
+#koncert .izvodaci-list .artist-pic:hover,
+#koncert .izvodaci-list .artist-pic:focus-visible{transform:none}
+#koncert .izvodaci-list .program li span.artist-pic,
+#koncert .izvodaci-list .program li span.izv-txt,
+#koncert .izvodaci-list .program li .pic-init{
+  display:revert;
+  font-size:inherit;
+  font-weight:inherit;
+  letter-spacing:normal;
+  text-transform:none;
+  color:inherit;
+}
+#koncert .izvodaci-list .program li .artist-pic{display:block;overflow:hidden}
+#koncert .izvodaci-list .program li .pic-init{
+  display:flex;
+  width:100%;
+  height:100%;
+  align-items:center;
+  justify-content:center;
+  font:500 .75rem var(--serif);
+  color:var(--navy);
+  background:linear-gradient(135deg,#f3efe6,#e6e0d2);
+  letter-spacing:.04em;
+}
+#koncert .izvodaci-list .program li .izv-txt > span{
+  display:block;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+#koncert .izvodaci-list .perf-link:hover .artist-pic,
+#koncert .izvodaci-list .perf-link:focus-visible .artist-pic,
+#koncert .izvodaci-list .perf-link:hover .pic-init,
+#koncert .izvodaci-list .perf-link:focus-visible .pic-init{
+  text-decoration:none;
+  color:inherit;
+  transform:none;
+}
+
