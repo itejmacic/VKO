@@ -769,9 +769,9 @@ body::after{background:url(img/bg-modern.jpg) right center/65% 100% no-repeat;op
 }
 .hero-v1 .hero-inner{
   position:relative;z-index:1;
-  max-width:1160px;width:100%;
-  margin:0 auto;
-  padding:clamp(48px,8vw,96px) var(--s5) clamp(40px,6vw,80px);
+  max-width:none;width:100%;
+  margin:0;
+  padding:clamp(48px,8vw,96px) var(--s5) clamp(40px,6vw,80px) var(--s4);
   text-align:left;
 }
 .hero-v1 .eyebrow{
